@@ -106,14 +106,14 @@ public class AppUp {
     	  AjaxParams params=new AjaxParams();
     	  mUpCallback=upcallback;
     	  params.put("mac", Configs.MAC);
-//    	  params.put("appid", "2003");
+    	  params.put("appid", Configs.Appid);
     	  params.put("versin",Version);
     	  new AjaxUtil().post(Configs.URL.AppUp,params,new PostCallback() {
 			
 			@Override
 			public void Success(String t) {
 				// TODO Auto-generated method stub
-				Log.d("success",t);
+//				Log.d("success",t);
 				try {
 					Gson g=new Gson();
 					mUp=g.fromJson(t, new TypeToken<Model_up>(){}.getType());
@@ -121,6 +121,7 @@ public class AppUp {
 						downApk();
 					}else{
 						if(upcallback!=null){
+							//down url is empty
 							upcallback.Failure("", 302);
 						}
 					}

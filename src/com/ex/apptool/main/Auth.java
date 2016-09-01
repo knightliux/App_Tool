@@ -48,13 +48,15 @@ public class Auth {
 	public void getFromNet(final boolean isCheck){
 		AjaxParams params=new AjaxParams();
 		params.put("mac", Configs.MAC);
+		params.put("appid", Configs.Appid);
 		params.put("cpuid", DeviceFun.GetCpuId(mContext));
+//		Log.d("authUrl",Configs.URL.Auth);
 		new AjaxUtil().post(Configs.URL.Auth,params,new PostCallback() {
 			
 			@Override
 			public void Success(String t) {
 				// TODO Auto-generated method stub
-//				Log.d("authre",t.toString());
+				Log.d("authre",t.toString()+"---");
 				try {
 					Gson g=new Gson();
 					Model_auth auth=g.fromJson(t, new TypeToken<Model_auth>(){}.getType());
@@ -84,7 +86,7 @@ public class Auth {
 		if(Cache==null){
 			getFromNet(true);	
 		}else{
-			Log.d("authfromcache",Cache);
+//			Log.d("authfromcache",Cache);
 			try {
 				Gson g=new Gson();
 				Model_auth auth=g.fromJson(Cache, new TypeToken<Model_auth>(){}.getType());

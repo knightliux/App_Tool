@@ -32,7 +32,7 @@ public class AppMsg {
 		this.msgcallback=msgcallback;
 		AjaxParams params=new AjaxParams();
 		params.put("mac", Configs.MAC);
-		params.put("appid", "2003");
+		params.put("appid", Configs.Appid);
 		new AjaxUtil().post(Configs.URL.Msg,params,new PostCallback() {
 			
 			@Override

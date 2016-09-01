@@ -18,6 +18,7 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+	
 		AppUp mAppUp=new AppUp(this);
 //		String dd=DeviceFun.printDeviceInf("dd",this);
 //		Toast.makeText(this, dd, Toast.LENGTH_LONG).show();
@@ -65,7 +66,7 @@ public class MainActivity extends Activity {
 			@Override
 			public void Success(String msg,int code) {
 				// TODO Auto-generated method stub
-				Log.d("msgsuccess,",code+"");
+				Log.d("msgsuccess,",code+":"+msg);
 			}
 			
 			@Override
